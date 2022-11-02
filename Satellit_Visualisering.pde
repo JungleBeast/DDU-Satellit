@@ -2,6 +2,8 @@ PShape globe;
 PImage Earth;
 int r = 200;
 int angle = 20;
+float lat = 28.385233;
+float lon = -81.563873;
 
 void setup(){
   size(900,900, P3D);
@@ -20,5 +22,12 @@ void draw(){
   lights();
   shape(globe);
 
-  
+float theta = radians(lat)+PI/2;
+float phi = radians(lon)+PI;
+float x = r * sin(theta) * cos(phi);
+float y = r * sin(theta) * sin(phi);
+float z = r * sin(theta);
+
+translate(x,y,z);
+sphere(10);
 }
