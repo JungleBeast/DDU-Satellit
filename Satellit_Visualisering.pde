@@ -18,7 +18,6 @@ void draw(){
   background(0);
   translate(width*0.5, height*0.5);
 
-
   
   lights();
   shape(globe);
@@ -29,12 +28,14 @@ float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
 
+translate(x,y,z);
+box(10);
 }
 
 void keyPressed(){
   if(keyPressed){
   if(key == 'w'){
-  globe.rotateX(-0.2);}
+  globe.rotateX(angle += -0.2);}
   if(key == 's'){
   globe.rotateX(0.2);}
   if(key == 'a'){
