@@ -5,8 +5,6 @@ int angle = 20;
 float lat = 28.385233;
 float lon = -81.563873;
 
-int Up     = 2; int Down = -2;
-int Right  = 2; int Left = -2;
 
 void setup(){
   size(900,900, P3D);
@@ -31,18 +29,19 @@ float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
 
-translate(x,y,z);
-sphere(10);
 }
 
 void keyPressed(){
   if(keyPressed){
-  if(keyCode != 38){
-  rotateY(map(mouseX, 0, width, -PI,PI));
-  }
+  if(key == 'w'){
+  globe.rotateX(-0.2);}
+  if(key == 's'){
+  globe.rotateX(0.2);}
+  if(key == 'a'){
+  globe.rotateY(-0.2);}
+  if(key == 'd'){
+  globe.rotateY(0.2);}
   
- 
-  rotateX(map(mouseY, 0, height, PI,-PI));  
-   
+  
  }
 }
