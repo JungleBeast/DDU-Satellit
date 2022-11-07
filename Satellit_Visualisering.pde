@@ -5,6 +5,9 @@ int angle = 20;
 float lat = 28.385233;
 float lon = -81.563873;
 
+int Up     = 2; int Down = -2;
+int Right  = 2; int Left = -2;
+
 void setup(){
   size(900,900, P3D);
   Earth = loadImage("Jorden.jpg");
@@ -16,8 +19,8 @@ void setup(){
 void draw(){
   background(0);
   translate(width*0.5, height*0.5);
-  rotateY(angle);
-  angle +=0.05;
+
+
   
   lights();
   shape(globe);
@@ -30,4 +33,16 @@ float z = r * sin(theta);
 
 translate(x,y,z);
 sphere(10);
+}
+
+void keyPressed(){
+  if(keyPressed){
+  if(keyCode != 38){
+  rotateY(map(mouseX, 0, width, -PI,PI));
+  }
+  
+ 
+  rotateX(map(mouseY, 0, height, PI,-PI));  
+   
+ }
 }
