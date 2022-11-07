@@ -5,11 +5,12 @@ int angle = 20;
 float lat = 28.385233;
 float lon = -81.563873;
 
+Table table;
 
 void setup(){
   size(900,900, P3D);
   Earth = loadImage("Jorden.jpg");
- 
+ table = loadTable(https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=BEBJ52-NNDMDB-TGK744-4YA7);
   noStroke();
   globe = createShape(SPHERE,r);
   globe.setTexture(Earth);
