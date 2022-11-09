@@ -37,7 +37,7 @@ float phi = radians(lon)+PI;
 float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
-
+//Bagge er en fissedreng
 
 pushMatrix();
 
