@@ -10,7 +10,7 @@ Table table;
 void setup(){
   size(900,900, P3D);
   Earth = loadImage("Jorden.jpg");
- table = loadTable(https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=BEBJ52-NNDMDB-TGK744-4YA7);
+ table = loadTable("https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=BEBJ52-NNDMDB-TGK744-4YA7","Header");
   noStroke();
   globe = createShape(SPHERE,r);
   globe.setTexture(Earth);
@@ -22,6 +22,12 @@ void draw(){
   
   lights();
   shape(globe);
+  
+  for(TableRow row : table.rows()){
+  float lat = row.getFloat("satlatitude");
+  float lon = row.getFloat("satlongtitude");
+  float alt = row.getFloat("sataltitude");
+  }
 
 float theta = radians(lat)+PI/2;
 float phi = radians(lon)+PI;
