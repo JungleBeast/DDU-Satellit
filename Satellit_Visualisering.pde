@@ -1,7 +1,7 @@
 PShape globe;
 PImage Earth;
 int r = 200;
-int angle = 20;
+float angle = 20;
 float lat = 28.385233;
 float lon = -81.563873;
 
@@ -18,7 +18,8 @@ void setup(){
 void draw(){
   background(0);
   translate(width*0.5, height*0.5);
-
+  rotateY(angle);
+  angle += 0.005;
   
   lights();
   shape(globe);
@@ -36,23 +37,11 @@ float phi = radians(lon)+PI;
 float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
+
+
 pushMatrix();
-translate(x,y,z);
+
+translate(lon,lat,alt/2);
 box(10);
 popMatrix();
-}
-
-void keyPressed(){
-  if(keyPressed){
-  if(key == 'w'){
-  globe.rotateX(angle += -0.2);}
-  if(key == 's'){
-  globe.rotateX(0.2);}
-  if(key == 'a'){
-  globe.rotateY(-0.2);}
-  if(key == 'd'){
-  globe.rotateY(0.2);}
-  
-  
- }
 }
