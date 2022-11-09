@@ -29,7 +29,7 @@ void draw(){
   float lat = pos0.getFloat("satlatitude");
   float lon = pos0.getFloat("satlongitude");
   float alt = pos0.getFloat("sataltitude");
-
+  float timeStamp = pos0.getFloat("timestamp");
  // println(lat,lon,alt);
 
 float theta = radians(lat)+PI/2;
@@ -37,7 +37,13 @@ float phi = radians(lon)+PI;
 float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
+<<<<<<< Updated upstream
 //Bagge er en fissedreng
+=======
+
+java.util.Date time = new java.util.Date((long)timeStamp*1000);
+
+>>>>>>> Stashed changes
 
 pushMatrix();
 
