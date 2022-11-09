@@ -23,20 +23,21 @@ void draw(){
   lights();
   shape(globe);
   
-  for(TableRow row : table.rows()){
+for(TableRow row : table.rows()){
   float lat = row.getFloat("satlatitude");
   float lon = row.getFloat("satlongtitude");
   float alt = row.getFloat("sataltitude");
-  }
+}
 
 float theta = radians(lat)+PI/2;
 float phi = radians(lon)+PI;
 float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
-
+pushMatrix();
 translate(x,y,z);
 box(10);
+popMatrix();
 }
 
 void keyPressed(){
