@@ -10,43 +10,42 @@ JSONObject table;
 void setup(){
   size(900,900, P3D);
   Earth = loadImage("Jorden.jpg");
- table = loadJSONObject("https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=BEBJ52-NNDMDB-TGK744-4YA7");
+  table = loadJSONObject("https://api.n2yo.com/rest/v1/satellite/positions/25544/41.702/-76.014/0/2/&apiKey=BEBJ52-NNDMDB-TGK744-4YA7");
   noStroke();
   globe = createShape(SPHERE,r);
   globe.setTexture(Earth);
 }
-void draw(){
-  background(0);
-  translate(width*0.5, height*0.5);
-  rotateY(angle);
-  angle += 0.005;
-  
-  lights();
-  shape(globe);
-  JSONObject station = table.getJSONObject("SPACE STATION");
-  JSONArray a = table.getJSONArray("positions");
-  JSONObject pos0 = a.getJSONObject(0);
-  float lat = pos0.getFloat("satlatitude");
-  float lon = pos0.getFloat("satlongitude");
-  float alt = pos0.getFloat("sataltitude");
-  float timeStamp = pos0.getFloat("timestamp");
- // println(lat,lon,alt);
 
+void draw(){
+  
+JSONObject station = table.getJSONObject("SPACE STATION");
+JSONArray a = table.getJSONArray("positions");
+JSONObject pos0 = a.getJSONObject(0);
+float lat = pos0.getFloat("satlatitude");
+float lon = pos0.getFloat("satlongitude");
+float alt = pos0.getFloat("sataltitude");
+float timeStamp = pos0.getFloat("timestamp");
 float theta = radians(lat)+PI/2;
 float phi = radians(lon)+PI;
 float x = r * sin(theta) * cos(phi);
 float y = r * sin(theta) * sin(phi);
 float z = r * sin(theta);
-<<<<<<< Updated upstream
-//Bagge er en fissedreng
-=======
-
 java.util.Date time = new java.util.Date((long)timeStamp*1000);
 
->>>>>>> Stashed changes
+  background(0);
 
+fill(255);
+text(time.toString(),20,20);
+println(time.toString());
+
+translate(width*0.5, height*0.5);
+rotateY(angle);
+angle += 0.005;
+  
+lights();
+shape(globe);
+  
 pushMatrix();
-
 translate(lon,lat,alt/2);
 box(10);
 popMatrix();
